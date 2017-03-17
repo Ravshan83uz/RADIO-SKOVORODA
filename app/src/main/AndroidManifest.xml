@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <uses-permission android:name="android.permission.ACCES_NETWORK_STATE"/>
+        <uses-permission android:name="android.permission.INTERNET"/>
+
+
 
     </application>
 

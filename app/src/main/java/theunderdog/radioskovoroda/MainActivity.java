@@ -1,3 +1,6 @@
+/*
+add stream radio
+ */
 package theunderdog.radioskovoroda;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -56,20 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     /*
+    add stream  music
     create By Igor Vasyo
-    package com.example.igorko.streammusic;
-
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import java.io.IOException;
-
-public class StreamMusic extends AppCompatActivity {
+    */
+   class StreamMusic extends AppCompatActivity {
     Button b_music;
 
     MediaPlayer mediaPlayer;
@@ -159,5 +152,3 @@ public class StreamMusic extends AppCompatActivity {
         }
     }
 }
-
-     */

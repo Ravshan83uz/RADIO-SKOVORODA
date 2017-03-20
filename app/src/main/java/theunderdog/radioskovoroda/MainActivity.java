@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-   add first code for animation.
+   add first code for animation
 
 
     <set xmlns:android="http://schemas.android.com/apk/res/android"

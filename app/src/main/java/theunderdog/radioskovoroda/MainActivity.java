@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     boolean prepared = false;
     boolean started = false;
 
-    String stream =   "http://stream.radioskovoroda.com:8000/radioskovoroda";
+    String stream = "http://stream.radioskovoroda.com:8000/radioskovoroda";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,24 +38,66 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                if(started){
+                if (started) {
                     started = false;
                     mediaPlayer.pause();
                     b_play.setText("PLAY");
-                }else{
+                } else {
                     started = true;
-
+                    mediaPlayer.start();
+                    b_play.setText("PAUSE");
                 }
             }
-            @Override
-            protected void onDestroy() {
-                super.onDestroy();
-                if(prepared){
-                    mediaPlayer.release();
-                }
-            }
-        } class PlayerTask {
+        });
     }
+
+    class PlayerTask extends AsyncTask<String, Void, Boolean> {
+
+        @Override
+        protected Boolean doInBackground(String... Strings) {
+            try {
+                mediaPlayer.setDataSource(Strings[0]);
+                mediaPlayer.prepare();
+                prepared = true;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return prepared;
+        }
+
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            b_play.setEnabled(true);
+            b_play.setText("PLAY");
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (started) {
+            mediaPlayer.pause();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (started) {
+            mediaPlayer.start();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (prepared) {
+            mediaPlayer.release();
+        }
+    }
+}
 
     /*
    add first code for animation
@@ -74,50 +116,49 @@ public class MainActivity extends AppCompatActivity {
     add stream  music
     create By Igor Vasyo
     */
-   class StreamMusic extends AppCompatActivity {
-    Button b_music;
+    class StreamMusic extends AppCompatActivity {
+        Button m_music;
 
-    MediaPlayer mediaPlayer;
+        MediaPlayer mediaPlayer;
 
-    boolean prepared = false;
-    boolean started = false;
-    String stream = "http://radioskovoroda.com/music";
+        boolean prepared = false;
+        boolean started = false;
+        String stream = "http://radioskovoroda.com/music";
 
 
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main2);
+            m_music = (Button) findViewById(R.id.m_music);
+            m_music.setEnabled(false);
+            m_music.setText("LOADING");
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stream_music);
-        b_music = (Button) findViewById(R.id.b_music);
-        b_music.setEnabled(false);
-        b_music.setText("LOADING");
+            mediaPlayer = new MediaPlayer();
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
-        mediaPlayer = new MediaPlayer ();
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            new PlayerTask().execute(stream);
 
-        new PlayerTask().execute(stream);
+            m_music.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (started) {
+                        started = false;
+                        mediaPlayer.pause();
+                        m_music.setText("PLAY");
 
-        b_music.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(started){
-                    started = false;
-                    mediaPlayer.pause();
-                    b_music.setText("PLAY");
+                    } else {
+                        started = true;
+                        mediaPlayer.start();
+                        m_music.setText("PAUSE");
+                    }
 
-            } else {
-                    started = true;
-                    mediaPlayer.start();
-                    b_music.setText("PAUSE");
                 }
-
-                }
-        });
-    }
+            });
+        }
 
 
-    class PlayerTask extends AsyncTask<String , Void , Boolean > {
+      class PlayerTask extends AsyncTask<String, Void, Boolean> {
         @Override
         protected Boolean doInBackground(String... strings) {
 
@@ -135,15 +176,15 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
-            b_music.setEnabled(true);
-            b_music.setText("MUSIC");
+            m_music.setEnabled(true);
+            m_music.setText("MUSIC");
         }
-    }
+      }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if(started){
+        if (started) {
             mediaPlayer.pause();
         }
     }
@@ -151,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(started){
+        if (started) {
             mediaPlayer.start();
         }
     }
@@ -159,8 +200,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(prepared){
+        if (prepared) {
             mediaPlayer.release();
         }
     }
 }
+

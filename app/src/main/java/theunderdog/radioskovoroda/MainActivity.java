@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         b_play = (Button) findViewById(R.id.b_play);
         b_play.setEnabled(false);
-        b_play.setText("LOADING");
+        b_play.setText(R.string.loading_status);
 
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);

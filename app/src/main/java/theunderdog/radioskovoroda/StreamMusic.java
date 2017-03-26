@@ -25,7 +25,7 @@ class StreamMusic extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.stream_music);
         m_music = (Button) findViewById(R.id.m_music);
         m_music.setEnabled(false);
         m_music.setText("LOADING");

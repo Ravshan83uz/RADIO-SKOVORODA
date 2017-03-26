@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RADIO-SKOVORODA.iml" filepath="$PROJECT_DIR$/RADIO-SKOVORODA.iml" />
       <module fileurl="file://$PROJECT_DIR$/RADIO-SKOVORODA.iml" filepath="$PROJECT_DIR$/RADIO-SKOVORODA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RADIO-SKOVORODA1.iml" filepath="$PROJECT_DIR$/RADIO-SKOVORODA1.iml" />
       <module fileurl="file://$PROJECT_DIR$/RadioSkovoroda.iml" filepath="$PROJECT_DIR$/RadioSkovoroda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

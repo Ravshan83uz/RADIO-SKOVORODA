@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RadioSkovoroda</string>
     <string name="loading_status">Loading…</string>
+    String url = "http://api.radioskovoroda.com:3000/api/stream/current/all";
 </resources>

@@ -1,0 +1,22 @@
+{
+  "radio": {
+    "type": "radio",
+    "serverName": "radioskovoroda",
+    "artist": ".....",
+    "track": "......",
+    "genre": ".....",
+    "bitrate": ...
+    "promo": ...
+    "listeners": ....
+  },
+  "music": {
+    "type": "music",
+    "serverName": "skovoroda music",
+    "artist": ".....",
+    "track": "......",
+    "genre": "......",
+    "bitrate":.....
+    "promo":......
+    "listeners":.....
+  }
+}

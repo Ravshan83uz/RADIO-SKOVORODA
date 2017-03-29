@@ -1,81 +1,77 @@
-package theunderdog.radioskovoroda;
-
+/*
+add stream radio
+ */
+package com.radioskovoroda;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.theunderdog.radioskovoroda.test.R;
-
 import java.io.IOException;
 
-/* add stream  music create By Igor Vasyo
-    */
-class StreamMusic extends AppCompatActivity {
-    Button m_music;
 
+public class MainActivity extends AppCompatActivity {
+
+    Button b_play;
     MediaPlayer mediaPlayer;
 
     boolean prepared = false;
     boolean started = false;
-    String stream = "http://radioskovoroda.com/music";
 
+    String stream = "http://stream.radioskovoroda.com:8000/radioskovoroda";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.stream_music);
-        m_music = (Button) findViewById(R.id.m_music);
-        m_music.setEnabled(false);
-        m_music.setText("LOADING");
+        setContentView(R.layout.main_activity);
+
+        b_play = (Button) findViewById(R.id.b_play);
+        b_play.setEnabled(false);
+        b_play.setText(R.string.loading_status);
 
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         new PlayerTask().execute(stream);
+        b_play.setOnClickListener(new View.OnClickListener() {
 
-        m_music.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 if (started) {
                     started = false;
                     mediaPlayer.pause();
-                    m_music.setText("PLAY");
-
+                    b_play.setText("PLAY");
                 } else {
                     started = true;
                     mediaPlayer.start();
-                    m_music.setText("PAUSE");
+                    b_play.setText("PAUSE");
                 }
-
             }
         });
     }
 
-
     class PlayerTask extends AsyncTask<String, Void, Boolean> {
-        @Override
-        protected Boolean doInBackground(String... strings) {
 
+        @Override
+        protected Boolean doInBackground(String... Strings) {
             try {
-                mediaPlayer.setDataSource(strings[0]);
+                mediaPlayer.setDataSource(Strings[0]);
                 mediaPlayer.prepare();
                 prepared = true;
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             return prepared;
         }
+
 
         @Override
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
-            m_music.setEnabled(true);
-            m_music.setText("MUSIC");
+            b_play.setEnabled(true);
+            b_play.setText("PLAY");
         }
     }
 
@@ -103,3 +99,4 @@ class StreamMusic extends AppCompatActivity {
         }
     }
 }
+

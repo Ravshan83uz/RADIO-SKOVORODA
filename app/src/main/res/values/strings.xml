@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">RadioSkovoroda</string>
+    <string name="app_name">radio_skovoroda</string>
+    <string name="title_stream_music">StreamMusic</string>
+
     <string name="loading_status">Loading…</string>
-    String url = "http://api.radioskovoroda.com:3000/api/stream/current/all";
+    <string name = "current_song_url">http://api.radioskovoroda.com:3000/api/stream/current/all</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.radioskovoroda;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import java.io.IOException;
 
+import static android.R.id.button2;
 
 
 /* add stream  music create By Igor Vasyo
@@ -102,3 +105,17 @@ public class StreamMusic extends AppCompatActivity {
         }
     }
 }
+    @Override
+    protected  void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.stream_music );
+        Button btn = (Button) findViewById(R.id.m_music);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                overridePendingTransition(R.animator.slide_left_out, R.animator.slide_right_out);
+            }
+
+
+          }

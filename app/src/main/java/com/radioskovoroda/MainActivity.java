@@ -2,6 +2,7 @@
 add stream radio
  */
 package com.radioskovoroda;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
@@ -11,8 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import java.io.IOException;
 
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements com.radioskovoroda.stream {
 
     Button b_play;
     MediaPlayer mediaPlayer;
@@ -98,5 +98,18 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.release();
         }
     }
-}
 
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+    super.onCreate( savedInstanceState);
+    setContentView(R.layout.main_activity);
+
+    Button btn = (Button) findViewById(R.id.m_music);
+    btn.setOnClickListener(new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(MainActivity.this, StreamMusic.class));
+        }
+     }
+    }

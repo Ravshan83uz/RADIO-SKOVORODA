@@ -55,6 +55,14 @@ public class StreamMusic extends AppCompatActivity {
 
             }
         });
+        Button btn = (Button) findViewById(R.id.b_switch2);
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StreamMusic.this, MainActivity.class));
+            }
+        });
     }
 
 
@@ -105,17 +113,3 @@ public class StreamMusic extends AppCompatActivity {
         }
     }
 }
-    @Override
-    protected  void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.stream_music );
-        Button btn = (Button) findViewById(R.id.m_music);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                overridePendingTransition(R.animator.slide_left_out, R.animator.slide_right_out);
-            }
-
-
-          }

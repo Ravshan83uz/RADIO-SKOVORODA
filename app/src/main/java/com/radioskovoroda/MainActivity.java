@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity implements com.radioskovoroda.stream {
+public class MainActivity extends AppCompatActivity   {
 
     Button b_play;
     MediaPlayer mediaPlayer;
@@ -48,6 +48,14 @@ public class MainActivity extends AppCompatActivity implements com.radioskovorod
                     mediaPlayer.start();
                     b_play.setText("PAUSE");
                 }
+            }
+        });
+        Button btn = (Button) findViewById(R.id.b_switch);
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, StreamMusic.class));
             }
         });
     }
@@ -99,17 +107,5 @@ public class MainActivity extends AppCompatActivity implements com.radioskovorod
         }
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState){
-    super.onCreate( savedInstanceState);
-    setContentView(R.layout.main_activity);
 
-    Button btn = (Button) findViewById(R.id.m_music);
-    btn.setOnClickListener(new View.OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(MainActivity.this, StreamMusic.class));
-        }
-     }
-    }
+}

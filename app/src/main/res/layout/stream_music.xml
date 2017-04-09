@@ -8,10 +8,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.radioskovoroda.StreamMusic"> />
+    tools:context="com.radioskovoroda.StreamMusic"
+    android:background="@drawable/secondscreen"
+    >
+
     <Button
         android:id="@+id/m_music"
-        android:layout_width="wrap_content"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
@@ -20,5 +24,15 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="188dp"
         android:text="Radio" />
+
+    <Button
+        android:id="@+id/b_switch2"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="155dp"
+        android:layout_height="130dp"
+        android:layout_below="@+id/m_music"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="Switch" />
 
 </RelativeLayout>

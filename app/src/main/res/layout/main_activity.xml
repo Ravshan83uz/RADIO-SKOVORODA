@@ -6,21 +6,29 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.radioskovoroda.MainActivity">
+    tools:context="com.radioskovoroda.MainActivity"
+    android:background="@drawable/firstscreen"
+        >
+
     <Button
-        android:text="PLAY"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="188dp"
         android:id="@+id/b_play"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="159dp"
+        android:text="PLAY"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/b_switch"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="160dp"
+        android:layout_height="110dp"
+        android:text="Switch"
+        android:layout_marginTop="88dp"
+        android:layout_below="@+id/b_play"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
-
-
-

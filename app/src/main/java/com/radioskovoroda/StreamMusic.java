@@ -24,7 +24,7 @@ public class StreamMusic extends AppCompatActivity {
 
     boolean prepared = false;
     boolean started = false;
-    String stream = "http://radioskovoroda.com/music";
+    String stream = "http://stream.radioskovoroda.com:8060/skovoroda_music";
 
 
     @Override

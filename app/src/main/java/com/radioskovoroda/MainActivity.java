@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 import com.google.gson.GsonBuilder;
@@ -29,9 +30,8 @@ public class MainActivity extends AppCompatActivity   {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main_activity);
-
-
         b_play = (Button) findViewById(R.id.b_play);
         b_play.setEnabled(false);
         b_play.setText(R.string.loading_status);

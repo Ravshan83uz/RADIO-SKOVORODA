@@ -4,7 +4,7 @@ package com.radioskovoroda;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Music {
+public class Music  {
 
     @SerializedName("type")
     @Expose

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">radio_skovoroda</string>
+    <string name="app_name">RadioSkovoroda</string>
     <string name="title_stream_music">StreamMusic</string>
 
     <string name="loading_status">Loading…</string>

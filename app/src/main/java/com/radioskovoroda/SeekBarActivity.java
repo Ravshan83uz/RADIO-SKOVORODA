@@ -3,7 +3,8 @@ package com.radioskovoroda;
 import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.Toast;
-public class SeekBarActivity extends MainActivity  implements SeekBar.OnSeekBarChangeListener {
+public class SeekBarActivity extends MainActivity  implements SeekBar.OnSeekBarChangeListener
+{
     SeekBar seekBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

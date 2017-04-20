@@ -12,8 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-
-import com.google.gson.GsonBuilder;
+import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -21,6 +20,8 @@ public class MainActivity extends AppCompatActivity   {
 
     Button b_play;
     MediaPlayer mediaPlayer;
+    CurrentSong currentSongText;
+
 
     boolean prepared = false;
     boolean started = false;
@@ -35,10 +36,8 @@ public class MainActivity extends AppCompatActivity   {
         b_play = (Button) findViewById(R.id.b_play);
         b_play.setEnabled(false);
         b_play.setText(R.string.loading_status);
-
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-
         new PlayerTask().execute(stream);
         b_play.setOnClickListener(new View.OnClickListener() {
 
@@ -63,7 +62,10 @@ public class MainActivity extends AppCompatActivity   {
                 startActivity(new Intent(MainActivity.this, StreamMusic.class));
             }
         });
+        TextView txtView = (TextView) findViewById(R.id.textView);
+        txtView.setText("Hello World");
     }
+
 
 
     class PlayerTask extends AsyncTask<String, Void, Boolean> {

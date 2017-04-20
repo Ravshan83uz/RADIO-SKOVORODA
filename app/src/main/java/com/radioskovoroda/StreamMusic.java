@@ -87,7 +87,7 @@ public class StreamMusic extends AppCompatActivity {
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
             m_music.setEnabled(true);
-            m_music.setText("MUSIC");
+            m_music.setText("PLAY");
         }
     }
 

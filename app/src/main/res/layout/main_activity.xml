@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
-    android:theme="@style/AppTheme.NoTitleBar"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:background="@drawable/screen1"
@@ -17,12 +16,12 @@
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="73dp"
+        android:layout_marginStart="73dp"
         android:text="PLAY"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="71dp"
-        android:layout_marginStart="71dp" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/b_switch"
@@ -31,8 +30,8 @@
         android:layout_height="40dp"
         android:layout_alignTop="@+id/button"
         android:layout_toEndOf="@+id/button"
-        android:text="MUSIC"
-        android:layout_toRightOf="@+id/button" />
+        android:layout_toRightOf="@+id/button"
+        android:text="MUSIC" />
 
     <Button
         android:id="@+id/button"
@@ -44,6 +43,42 @@
         android:layout_alignStart="@+id/b_play"
         android:layout_marginBottom="26dp"
         android:text="RADIO" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@android:style/Widget.SeekBar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/b_play"
+        android:layout_alignStart="@+id/b_play"
+        android:layout_below="@+id/b_play"
+        android:layout_marginTop="37dp" />
+
+    <Button
+        android:id="@+id/playlist1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="38dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:text="PLAYLIST"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button"
+        android:layout_alignEnd="@+id/b_play"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignRight="@+id/b_play"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginBottom="27dp"
+        android:maxLines="4"
+        android:lines="4"
+        android:text="Lorem ipsum dolor sit "/>
 
 
 </RelativeLayout>

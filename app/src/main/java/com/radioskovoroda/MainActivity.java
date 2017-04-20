@@ -12,15 +12,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
-
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import java.io.IOException;
+import android.content.Context;
 
 public class MainActivity extends AppCompatActivity   {
 
     Button b_play;
     MediaPlayer mediaPlayer;
     CurrentSong currentSongText;
+    SeekBar seekBar;
+    AudioManager audioManager;
 
 
     boolean prepared = false;
@@ -33,6 +37,8 @@ public class MainActivity extends AppCompatActivity   {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main_activity);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        initControls();
         b_play = (Button) findViewById(R.id.b_play);
         b_play.setEnabled(false);
         b_play.setText(R.string.loading_status);
@@ -115,5 +121,35 @@ public class MainActivity extends AppCompatActivity   {
         }
     }
 
+    public void initControls(){
+        try {
+            seekBar = (SeekBar)findViewById(R.id.seekBar);
+            audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+            seekBar.setMax(audioManager
+                    .getStreamMaxVolume(audioManager.STREAM_MUSIC));
+            seekBar.setProgress(audioManager
+                    .getStreamVolume(audioManager.STREAM_MUSIC));
+            seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
 
-}
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+
+                }
+
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
+                            progress, 0);
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    }
+
+
